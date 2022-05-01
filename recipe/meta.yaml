@@ -1,5 +1,5 @@
 {% set name = "sphinx_gmt" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e6b468701d73a959a931cb85f7ff49b5a2d2ba97bb9e7807005c3f500c407521
+  sha256: 7325e03e00039e882b002549804c8036d40a843e2b41e5c710e5e6351a66a3ec
 
 build:
   noarch: python
