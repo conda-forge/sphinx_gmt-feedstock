@@ -6,26 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7325e03e00039e882b002549804c8036d40a843e2b41e5c710e5e6351a66a3ec
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools_scm
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jinja2
     - sphinx
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - sphinx_gmt.gmtplot
 
